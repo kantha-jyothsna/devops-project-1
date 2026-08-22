@@ -30,6 +30,12 @@ The project was built and tested on an AWS EC2 instance.
                 Python Application
 ---
 
+
+
+
+
+
+
 ## Technologies Used
 
 - Python
