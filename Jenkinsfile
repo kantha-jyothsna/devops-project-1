@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello from Jenkins Pipeline'
+                sh 'docker build -t jenkins-dockerapp .'
             }
         }
     }
