@@ -13,7 +13,7 @@ pipeline {
                 sh '''
                     docker run -d --name jenkins-test -p 5000:5000 jenkins-dockerapp:latest
                     sleep 3
-                    curl --fail http://localhost:9999
+                    curl --fail http://localhost:5000
                 '''
             }
         }
