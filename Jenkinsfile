@@ -1,7 +1,9 @@
+
 pipeline {
     agent any
 
     stages {
+
         stage('Build') {
             steps {
                 sh 'docker build -t jenkins-dockerapp .'
@@ -17,23 +19,24 @@ pipeline {
                 '''
             }
         }
+
         stage('Credential Test') {
             steps {
                 withCredentials([
-                   usernamePassword(
-                       credentialsId: 'demo-credential',
-                       usernameVariable: 'DEMO_USER',
-                       passwordVariable: 'DEMO_PASS'
-                )
-            ]) {
-                sh '''
-                   echo "Credential username is available: $DEMO_USER"
-                   echo "Credential password is available to the script"
-                 '''
+                    usernamePassword(
+                        credentialsId: 'demo-credential',
+                        usernameVariable: 'DEMO_USER',
+                        passwordVariable: 'DEMO_PASS'
+                    )
+                ]) {
+                    sh '''
+                        echo "Credential username is available: $DEMO_USER"
+                        echo "Credential password is available to the script"
+                    '''
+                }
             }
         }
     }
-    
 
     post {
         always {
